@@ -642,7 +642,25 @@ private:
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(1920, 1080), "Character Sheet");
+	json j;
+
+	std::ifstream settings("settings.json");
+	if (settings.good())
+	{
+		settings >> j;
+	}
+	settings.close();
+	
+	int width{1280}, height{ 720 };
+	if (j.count("Width"))
+	{
+		width = j["Width"].get<int>();
+	}
+	if (j.count("Height"))
+	{
+		height = j["Height"].get<int>();
+	}
+	sf::RenderWindow window(sf::VideoMode(width, height), "Character Sheet");
 
 	window.setVerticalSyncEnabled(true);
 
