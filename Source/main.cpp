@@ -143,7 +143,7 @@ public:
 		// Equations for proficiency still work for the level 50 variant rule
 		const int max_level = 20;
 
-		ImGui::Begin("Character Sheet", nullptr, ImGuiWindowFlags_NoCollapse);
+		ImGui::Begin("Character Sheet", nullptr, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize);
 		
 		ImGui::SetWindowPos(ImVec2(0, 0));
 		ImGui::SetWindowSize(ImVec2(width, height));
