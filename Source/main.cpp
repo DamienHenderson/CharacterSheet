@@ -136,7 +136,7 @@ public:
 	}
 
 
-	void DoGUI()
+	void DoGUI(size_t width, size_t height)
 	{
 		
 		const int min_level = 1;
@@ -144,6 +144,10 @@ public:
 		const int max_level = 20;
 
 		ImGui::Begin("Character Sheet", nullptr, ImGuiWindowFlags_NoCollapse);
+		
+		ImGui::SetWindowPos(ImVec2(0, 0));
+		ImGui::SetWindowSize(ImVec2(width, height));
+		
 		if (ImGui::Button("Save Character Sheet"))
 		{
 			// Save Sheet Here
@@ -687,7 +691,7 @@ int main()
 		}
 		ImGui::SFML::Update(window, delta_time_clock.restart());
 
-		character_sheet.DoGUI();
+		character_sheet.DoGUI(width, height);
 
 		window.clear(sf::Color::White);
 

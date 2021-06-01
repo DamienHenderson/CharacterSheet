@@ -12,4 +12,5 @@ find_package(ImGui-SFML CONFIG REQUIRED)
 add_executable(CharacterSheet Source/main.cpp)
 
 
+
 target_link_libraries(CharacterSheet PRIVATE sfml-system sfml-network sfml-graphics sfml-window ImGui-SFML::ImGui-SFML unofficial::nativefiledialog::nfd nlohmann_json::nlohmann_json)
