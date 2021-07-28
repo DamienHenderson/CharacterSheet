@@ -9,6 +9,11 @@
 #include <fstream>
 
 
+
+	
+
+
+
 using json = nlohmann::json;
 
 constexpr size_t normal_text_length = 32;
@@ -649,6 +654,7 @@ private:
 };
 
 
+
 int main()
 {
 	json j;
@@ -660,7 +666,7 @@ int main()
 	}
 	settings.close();
 	
-	int width{1280}, height{ 720 };
+	int width{1600}, height{ 900 };
 	if (j.count("Width"))
 	{
 		width = j["Width"].get<int>();
@@ -671,7 +677,8 @@ int main()
 	}
 	sf::RenderWindow window(sf::VideoMode(width, height), "Character Sheet");
 
-	window.setVerticalSyncEnabled(true);
+	// window.setVerticalSyncEnabled(true);
+	window.setFramerateLimit(15);
 
 	ImGui::SFML::Init(window);
 
@@ -704,4 +711,7 @@ int main()
 
 		window.display();
 	}
+
+	
+
 }
